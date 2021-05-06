@@ -1,1 +1,6 @@
 temp/**/*
+tmp/**/*
+*.png
+*.PNG
+*.jpg
+*.jpeg

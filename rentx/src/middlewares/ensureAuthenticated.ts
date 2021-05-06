@@ -37,7 +37,7 @@ export async function ensureAuthenticated(
   const [scheme, token] = parts;
 
   if (!/^Bearer$/i.test(scheme)) {
-    throw new AppError("Token malformated", 401);
+    throw new AppError("Token malformed", 401);
   }
 
   try {
@@ -52,6 +52,10 @@ export async function ensureAuthenticated(
     if (!user) {
       throw new AppError("User not found", 401);
     }
+
+    request.user = {
+      id: user_id,
+    };
 
     next();
   } catch (error) {
