@@ -16,7 +16,7 @@
   - permite ler determinado arquivo por _partes_: `chunck`
 
   - `pipe()`
-    - para cada **pedaço/chunk** lido ele vai recever esse pedaço
+    - para cada **pedaço/chunk** lido ele vai receber esse pedaço
 
 - Usos
 
@@ -55,7 +55,7 @@
 - `-p`: faz um mapeamento das portas.
   - sempre que for acessado na máquina _local_ o endereço **3333**, vai jogar no enderço do _docker_ na porta **4444**
 
-## docker componse
+## docker-compose
 
 - compositar/administar uma imagem docker. _ex: definir var ENV_
 
@@ -95,3 +95,45 @@
 - Ao criar serviçoes eles rodam sobre diferentes images, cada imagem tem o seu própio IP.
   - pode ser resolvido configurando para ambos rodarem na mesma rede.
     ex: `network_mode:host`: **configura o modo de rede**
+
+## Testes
+
+> Não são feitos em banco de dados de produção
+
+- Testes unitários
+
+  - teste de regras de negócio
+  - testes em pedaços/unidades da aplicação
+  - ex: teste de uma feature
+
+- testes de integração
+
+  - Quando é testado o fluxo da aplicação inteira
+
+- TDD: test driven development.
+  - metodologia usada para fazer testes.
+  - quando é feito primeiro o teste e em seguida é feito a função.
+
+## Jest
+
+biblioteca usada para programar os testes em _JS/TS_
+
+- instalando
+
+  - `yarn add jest; yarn add @types/jest`
+  - `yarn add ts-jest -D`: vai rodar os testes em **TS**
+
+- iniciando
+  - `yarn jest --init`: vai fazer as alterações de acordo com as respostas
+
+configurando **jest.config.ts**
+
+| config         | desc                                               |
+| -------------- | -------------------------------------------------- |
+| preset         | `: "ts-jest"`                                      |
+| testMatch      | pastas onde vão ser feito os testes                |
+| `**/*.spec.ts` | vai ser realizando em todos os arquivos _.spec.ts_ |
+| `bail: true`   | para de rodar apos algum erro                      |
+
+- **funções**
+  - `describe(groupTestName, () => {})`: serve para agrupar os testes.
